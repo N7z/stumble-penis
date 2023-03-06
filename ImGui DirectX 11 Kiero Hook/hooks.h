@@ -1,20 +1,6 @@
 ﻿#pragma once
 #include "offsets.h"
 
-
-// OTHER STUFF ↓↓↓
-// GENERATE ROOM
-char* (__fastcall* generateRoom_Orig)(DWORD*, DWORD*);
-char* __stdcall generateRoom_Hook(DWORD* __this, DWORD* method) {
-	//
-	printf("rolas saborosas\n");
-	return (char*)"666666";
-}
-void GenerateTrollRoom() {
-	MH_CreateHook(reinterpret_cast<LPVOID*>(GameAssembly + GenerateRoomCodeOffset), &generateRoom_Hook, reinterpret_cast<LPVOID*>(&generateRoom_Orig));
-	MH_EnableHook(reinterpret_cast<LPVOID*>(GameAssembly + GenerateRoomCodeOffset));
-}
-
 // PLAYER RELATED ↓↓↓
 // EMOTES
 bool(__fastcall* hasEmote_Orig)(DWORD*, const char*, DWORD*);
